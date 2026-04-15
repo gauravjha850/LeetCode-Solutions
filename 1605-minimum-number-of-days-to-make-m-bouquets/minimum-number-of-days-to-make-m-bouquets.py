@@ -18,7 +18,7 @@ class Solution(object):
             return -1
         low=min(bloomDay)
         high=max(bloomDay)
-        ans=-1
+        ans=5
         while low <= high :
             mid= low+(high-low)//2
             
