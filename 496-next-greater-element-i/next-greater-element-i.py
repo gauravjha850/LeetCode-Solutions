@@ -1,24 +1,20 @@
 class Solution(object):
     def nextGreaterElement(self, nums1, nums2):
         hash_map={}
+        ans=[]
         stack=[]
         for num in nums2:
-            while stack and num > stack[-1]:
-                smaller_num= stack.pop()
-                hash_map[smaller_num]=num
-
+            while stack and stack[-1]< num :
+                smaller=stack.pop()
+                hash_map[smaller]=num
             stack.append(num)
-        answer=[]
-
         for num in nums1:
-            if num in hash_map :
-                ans=hash_map[num]
+            if num in hash_map:
+                answer=hash_map[num]
             else:
-                ans=-1
-            answer.append(ans)
-        
-        return answer
+                answer=-1
+            ans.append(answer)
+        return ans
 
-
-        
+                
         
