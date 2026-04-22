@@ -1,10 +1,4 @@
 class Solution(object):
     def bulbSwitch(self, n):
-        i =1
-        count=0
-        while i*i <= n:
-            count =count+1
-            i=i+1
-        return count
-        
+        return int(n**0.5)
         
