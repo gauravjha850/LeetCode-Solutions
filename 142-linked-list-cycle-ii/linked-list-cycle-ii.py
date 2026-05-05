@@ -6,15 +6,20 @@
 
 class Solution(object):
     def detectCycle(self, head):
-        temp=head
-
-        map_node=set()
-        while temp is not None:
-            if temp in map_node:
-                return temp
-            map_node.add(temp)
-            temp=temp.next
+        slow=head
+        fast=head
+        while fast is not None and fast.next is not None :
+            fast=fast.next.next
+            slow=slow.next
+            if slow==fast:
+                slow=head
+                while slow!=fast:
+                    slow=slow.next
+                    fast=fast.next
+                return slow
         return None
+
+        
 
 
         
