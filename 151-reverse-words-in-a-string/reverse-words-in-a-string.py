@@ -1,18 +1,10 @@
 class Solution(object):
     def reverseWords(self, s):
-        word=s.split()
-        result=[]
-        for i in range (len(word)-1,-1,-1):
-            result.append(word[i])
-            
-            if i != 0:
-                result.append(' ')
-        return "".join(result)
-            
-    
-
-
-        
-
-
-        
+        s=s.split()
+        left=0
+        right=len(s)-1
+        while left<=right:
+            s[left],s[right]=s[right],s[left]
+            left+=1
+            right-=1
+        return " ".join(s)       
