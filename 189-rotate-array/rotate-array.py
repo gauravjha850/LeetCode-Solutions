@@ -1,25 +1,18 @@
 class Solution(object):
-    def rotate(self, arr, k):
-        n=len(arr)
+    def reverse(self,nums,start,end):
+        while start <end :
+            nums[start],nums[end]=nums[end],nums[start]
+            start+=1
+            end-=1
+    def rotate(self, nums, k):
+        n=len(nums)
+        if  k==0:
+            return nums
         k=k%n
-        l=0
-        r=n-1
-        while l<r:
-            arr[l],arr[r]=arr[r],arr[l]
-            l=l+1
-            r=r-1
-        l=0
-        r=k-1    
-        while l<r:
-            arr[l],arr[r]=arr[r],arr[l]
-            l=l+1
-            r=r-1
-        l=k
-        r=n-1
-
-        while l<r:
-            arr[l],arr[r]=arr[r],arr[l]
-            l=l+1
-            r=r-1
-        return arr
+        self.reverse(nums,0,n-1)
+        self.reverse(nums,0,k-1)
+        self.reverse(nums,k,n-1)
+        return nums
+        
+    
         
