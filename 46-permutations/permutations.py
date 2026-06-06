@@ -1,19 +1,23 @@
+ 
 class Solution(object):
     def permute(self, nums):
-        n=len(nums)
-        result=[]
-        used=[False]*n
-        def backtrack(current):
-            if len(current) == n :
-                result.append(current[:])
+        result_list=[]
+        def back(temp_list):
+            if len(temp_list)==len(nums):
+                result_list.append(list(temp_list))
                 return
-            for i in range (n):
-                if not used[i]:
-                    used[i]=True
-                    current.append(nums[i])
-                    backtrack(current)
-                    used[i]=False
-                    current.pop()
-        backtrack([])
-        return result
+            
+            for num in nums :
+                if num in temp_list:
+                    continue
+                temp_list.append(num)
+
+                back(temp_list)
+
+                temp_list.pop()
+
+        back([])
+
+        return result_list
+        
         
