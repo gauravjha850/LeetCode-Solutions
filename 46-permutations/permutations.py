@@ -1,23 +1,24 @@
- 
 class Solution(object):
     def permute(self, nums):
-        result_list=[]
-        def back(temp_list):
-            if len(temp_list)==len(nums):
-                result_list.append(list(temp_list))
-                return
+        result=[]
+
+         
+        def back(temp):
             
+            if len(nums)==len(temp):
+                result.append(temp[:])
+                return
             for num in nums :
-                if num in temp_list:
+                if num in temp:
                     continue
-                temp_list.append(num)
+                temp.append(num)
 
-                back(temp_list)
+                back(temp)
 
-                temp_list.pop()
-
+                temp.pop()
         back([])
 
-        return result_list
-        
+        return result
+
+
         
