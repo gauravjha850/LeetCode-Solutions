@@ -4,20 +4,24 @@ class Solution(object):
         nums.sort()
         result=[]
         used=[False]*n
-        def backtrack(current):
-            if len(current)== n :
-                result.append(current[:])
-                return
-            for i in range(n):
+        def back(temp):
+            if len(temp)==n:
+                result.append(temp[:])
+                return 
+            for i in range (n):
                 if used[i]:
                     continue
-                if i > 0 and nums[i]==nums[i-1] and not used[i-1]:
+                if i>0 and nums[i]==nums[i-1] and not  used[i-1]:
                     continue
                 used[i]=True
-                current.append(nums[i])
-                backtrack(current)
+                temp.append(nums[i])
+                back(temp)
+                temp.pop()
                 used[i]=False
-                current.pop()
-        backtrack([])
-        return result        
+        back([])
+        return result
+
+
+
+        
         
