@@ -1,17 +1,16 @@
 class Solution(object):
     def majorityElement(self, nums):
-        candi=None
+        candidate=None
         count=0
         for num in nums :
             if count==0:
-                candi=num
-            if candi==num:
+                candidate=num
+            if candidate==num:
                 count+=1
             else:
                 count-=1
-        return candi
+        return candidate
+            
 
-
-
-        
+         
         
