@@ -4,11 +4,11 @@ class Solution(object):
         if n<=2:
             return n
         i=2
-        for j in range(2,n):
+        for j in range (2,len(nums)):
             if nums[j]!=nums[i-2]:
                 
                 nums[i]=nums[j]
                 i+=1
-        return i
-        
-        
+
+        return i              
+
