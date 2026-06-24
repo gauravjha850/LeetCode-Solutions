@@ -1,18 +1,18 @@
 class Solution(object):
-    def reverse(self,nums,start,end):
-        while start <end :
-            nums[start],nums[end]=nums[end],nums[start]
-            start+=1
-            end-=1
+    def reverse(self,nums,left,right):
+        while left<right:
+            nums[left],nums[right]=nums[right],nums[left]
+            left+=1
+            right-=1
     def rotate(self, nums, k):
         n=len(nums)
-        if  k==0:
+        if k==0:
             return nums
         k=k%n
         self.reverse(nums,0,n-1)
         self.reverse(nums,0,k-1)
         self.reverse(nums,k,n-1)
+
         return nums
         
-    
         
